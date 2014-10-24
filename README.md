@@ -72,7 +72,7 @@ Adds an array of substitution `values` for a given `key`.
 var header = SmtpApi()
 header.addSubstitution("%name%", values: ["Isaac","Jose","Tim"])
 // JSON Value: {"sub":{"%name%":["Isaac","Jose","Tim"]}}
-header.setSubstitutions("%email%", value: ["isaac@example.none","jose@example.none","tim@example.none"])
+header.addSubstitution("%email%", values: ["isaac@example.none","jose@example.none","tim@example.none"])
 // JSON Value: {"sub":{"%name%":["Isaac","Jose","Tim"],"%email%":["isaac@example.none","jose@example.none","tim@example.none"]}}
 ```
 
@@ -139,6 +139,28 @@ var header = SmtpApi()
 var date = NSDate(timeIntervalSinceNow: (3 * 60 * 60)) // 3 hours from now
 header.setSendAt(date)
 // Example JSON Value: {"send_at":1407974400)}
+```
+
+#### setSendEachAt(_:)
+
+Sets a list of dates that corresponds with the `to` array for when to send each message.
+
+```swift
+var header = SmtpApi()
+var date1 = NSDate(timeIntervalSinceNow: (2 * 60 * 60))
+var date2 = NSDate(timeIntervalSinceNow: (5 * 60 * 60))
+header.setSendEachAt([date1, date2])
+// Example JSON Value: {"send_each_at":[1407974400,1407974815]}
+```
+
+#### setAsmGroup(_:)
+
+Sets an [ASM Group](https://sendgrid.com/docs/User_Guide/advanced_suppression_manager.html) for the message.
+
+```swift
+var header = SmtpApi()
+header.setAsmGroup(2)
+// JSON Value: {"asm_group_id":2}
 ```
 
 ## Contributing

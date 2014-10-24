@@ -351,13 +351,89 @@ class SmtpApi {
     *=========================================================================*/
     
     func setSendAt(date: NSDate) {
-        if date.timeIntervalSinceNow <= 0 {
-            println("[**WARNING**] SmtpApi setSendAt: Date was set to a time in the past.")
-        } else if date.timeIntervalSinceNow > (24 * 60 * 60) {
-            println("[**WARNING**] SmtpApi setSendAt: Date was set to unsupported time (further than 24 hours in the future). See https://sendgrid.com/docs/API_Reference/SMTP_API/scheduling_parameters.html for more details.")
-        }
+        self.verifyScheduleDate(date)
         
         self.send_at = Int(date.timeIntervalSince1970)
+    }
+    
+    /* setSendEachAt(_:)
+    *
+    * SUMMARY
+    * Sets a date to send each individual copy at (for each recipient).
+    *
+    * PARAMETERS
+    * dates     An Array of NSDate objects indicating when to send the message.
+    *
+    * RETURNS
+    * Nothing.
+    *
+    *=========================================================================*/
+    
+    func setSendEachAt(dates: [NSDate]) {
+        if self.send_each_at == nil {
+            self.send_each_at = []
+        }
+        
+        for date in dates {
+            self.verifyScheduleDate(date)
+            self.send_each_at?.append(Int(date.timeIntervalSince1970))
+        }
+    }
+    
+    /* setAsmGroup(_:)
+    *
+    * SUMMARY
+    * Assigns the email an Advanced Suppression Management group.
+    *
+    * PARAMETERS
+    * id    The ID of the ASM group.
+    *
+    * RETURNS
+    * Nothing.
+    *
+    *=========================================================================*/
+    
+    func setAsmGroup(id: Int) {
+        self.asm_group_id = id
+    }
+    
+    
+    // MARK: CONVENIENCE FUNCTIONS
+    //=========================================================================
+    
+    /* verifyScheduleDate(_:)
+    *
+    * SUMMARY
+    * Verifies that the NSDate being used for scheduling is in the valid time
+    * frame.
+    *
+    * PARAMETERS
+    * date      An NSDate object representing when to send a message.
+    *
+    * RETURNS
+    * A boolean, indicating if the date is valid or not.
+    *
+    *=========================================================================*/
+    func verifyScheduleDate(date: NSDate) -> Bool {
+        var valid = true
+        var formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.LongStyle
+        var time = NSDateFormatter()
+        time.timeStyle = NSDateFormatterStyle.LongStyle
+        
+        var now = NSDate()
+        
+        var scheduled = "\(formatter.stringFromDate(date)) at \(time.stringFromDate(date))"
+        var current = "\(formatter.stringFromDate(now)) at \(time.stringFromDate(now))"
+        
+        if date.timeIntervalSinceNow <= 0 {
+            println("[**WARNING**] SmtpApi setSendAt: Date \"\(scheduled)\" was set to a time in the past (currently it is \(current))")
+            valid = false
+        } else if date.timeIntervalSinceNow > (24 * 60 * 60) {
+            println("[**WARNING**] SmtpApi setSendAt: Date \"\(scheduled)\" was set to unsupported time (further than 24 hours in the future - currently it is \(current)). See https://sendgrid.com/docs/API_Reference/SMTP_API/scheduling_parameters.html for more details.")
+            valid = false
+        }
+        return valid
     }
     
 }

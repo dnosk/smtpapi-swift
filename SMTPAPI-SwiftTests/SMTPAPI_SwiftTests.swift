@@ -97,4 +97,18 @@ class SMTPAPI_SwiftTests: XCTestCase {
         XCTAssertEqual(header.jsonValue, "{\"send_at\":\(Int(date.timeIntervalSince1970))}", "Sets a scheduled time.")
     }
     
+    func testSetSendEachAt() {
+        var header = SmtpApi()
+        var date1 = NSDate(timeIntervalSinceNow: (2 * 60 * 60))
+        var date2 = NSDate(timeIntervalSinceNow: (5 * 60 * 60))
+        header.setSendEachAt([date1, date2])
+        XCTAssertEqual(header.jsonValue, "{\"send_each_at\":[\(Int(date1.timeIntervalSince1970)),\(Int(date2.timeIntervalSince1970))]}", "Sets an array of scheduled times.")
+    }
+    
+    func testSetAsmGroup() {
+        var header = SmtpApi()
+        header.setAsmGroup(2)
+        XCTAssertEqual(header.jsonValue, "{\"asm_group_id\":2}", "Sets an ASM group.")
+    }
+    
 }
