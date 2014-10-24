@@ -197,21 +197,6 @@ class SmtpApi {
         self.sub![key] = values
     }
     
-    /* setSubstitutions(_:)
-    *
-    * SUMMARY
-    * Sets the property `sub` to the given dictionary
-    *
-    * PARAMETERS
-    * values    A dictionary of keys and values used for the `sub` property.
-    *
-    * RETURNS
-    * Nothing.
-    *
-    *=========================================================================*/
     
-    func setSubstitutions(values: [String:[String]]) {
-        self.sub = values
-    }
     
 }
