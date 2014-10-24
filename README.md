@@ -88,6 +88,16 @@ header.addSection("-greetFemale-", value: "Hello Ms. %name%")
 // JSON Value: {"section":{"-greetMale-":"Hello Mr. %name%","-greetFemale-":"Hello Ms. %name%"}}
 ```
 
+#### addUniqueArgument(_:value:)
+
+Adds a [Unique Argument](https://sendgrid.com/docs/API_Reference/SMTP_API/unique_arguments.html) to the header.
+
+```swift
+var header = SmtpApi()
+header.addUniqueArgument("foo", value: "bar")
+// JSON Value: {"unique_args":{"foo":"bar"}}
+```
+
 ## Contributing
 
 1. Fork it

@@ -67,9 +67,8 @@ class SmtpApi {
     }
     
     var jsonValue: String {
-        var dictionary = self.dictionaryValue
         var error: NSError?
-        var data = NSJSONSerialization.dataWithJSONObject(dictionary, options: nil, error: &error)
+        var data = NSJSONSerialization.dataWithJSONObject(self.dictionaryValue, options: nil, error: &error)
         if let err = error {
             println("[**ERROR**] SmtpApi jsonValue: Error converting to JSON string. \(err.localizedDescription)")
         } else if let json = data {
@@ -217,6 +216,28 @@ class SmtpApi {
         }
         
         self.section![key] = value
+    }
+    
+    /* addUniqueArgument(_:value:)
+    *
+    * SUMMARY
+    * Adds a key-value pair to the unique arguments.
+    *
+    * PARAMETERS
+    * key       A string for the unique argument key.
+    * value     A string for the unique arugment value.
+    *
+    * RETURNS
+    * Nothing.
+    *
+    *=========================================================================*/
+    
+    func addUniqueArgument(key: String, value: String) {
+        if self.unique_args == nil {
+            self.unique_args = [:]
+        }
+        
+        self.unique_args![key] = value
     }
     
 }

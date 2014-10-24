@@ -63,4 +63,10 @@ class SMTPAPI_SwiftTests: XCTestCase {
         XCTAssertEqual(header.jsonValue, "{\"section\":{\"-greetMale-\":\"Hello Mr. %name%\"}}", "Adds a section tag.")
     }
     
+    func testAddUniqueArgument() {
+        var header = SmtpApi()
+        header.addUniqueArgument("foo", value: "bar")
+        XCTAssertEqual(header.jsonValue, "{\"unique_args\":{\"foo\":\"bar\"}}", "Adds a unique argument")
+    }
+    
 }
