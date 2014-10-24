@@ -13,6 +13,7 @@
 		777905D019F9C32600B37463 /* SMTPAPI_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777905CF19F9C32600B37463 /* SMTPAPI_SwiftTests.swift */; };
 		777905DA19F9C37600B37463 /* SmtpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777905D919F9C37600B37463 /* SmtpApi.swift */; };
 		777905DB19F9D42300B37463 /* SmtpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777905D919F9C37600B37463 /* SmtpApi.swift */; };
+		777905DD19F9D7D900B37463 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 777905DC19F9D7D900B37463 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		777905CE19F9C32600B37463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		777905CF19F9C32600B37463 /* SMTPAPI_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMTPAPI_SwiftTests.swift; sourceTree = "<group>"; };
 		777905D919F9C37600B37463 /* SmtpApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmtpApi.swift; sourceTree = "<group>"; };
+		777905DC19F9D7D900B37463 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		777905B019F9C32600B37463 = {
 			isa = PBXGroup;
 			children = (
+				777905DC19F9D7D900B37463 /* README.md */,
 				777905BB19F9C32600B37463 /* SMTPAPI-Swift */,
 				777905CC19F9C32600B37463 /* SMTPAPI-SwiftTests */,
 				777905BA19F9C32600B37463 /* Products */,
@@ -209,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				777905DD19F9D7D900B37463 /* README.md in Sources */,
 				777905DA19F9C37600B37463 /* SmtpApi.swift in Sources */,
 				777905BF19F9C32600B37463 /* AppDelegate.swift in Sources */,
 			);
@@ -399,6 +403,7 @@
 				777905D519F9C32600B37463 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		777905D619F9C32600B37463 /* Build configuration list for PBXNativeTarget "SMTPAPI-SwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +412,7 @@
 				777905D819F9C32600B37463 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

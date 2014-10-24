@@ -88,7 +88,7 @@ class SmtpApi {
     
     // MARK: FUNCTIONS
     //=========================================================================
-    func addTo(address: String, name: String?) -> SmtpApi {
+    func addTo(address: String, name: String?) {
         if self.to == nil {
             self.to = []
         }
@@ -97,10 +97,9 @@ class SmtpApi {
             entry = "\(toName) <\(address)>"
         }
         self.to!.append(entry)
-        return self
     }
     
-    func addTos(addresses: [String], names: [String]?) -> SmtpApi {
+    func addTos(addresses: [String], names: [String]?) {
         if self.to == nil {
             self.to = []
         }
@@ -113,21 +112,17 @@ class SmtpApi {
                 }
             } else {
                 println("[**ERROR**] SmtpApi addTos: The number of email addresses provided didn't match the number of names provided.")
-                return self
+                return
             }
         } else {
             self.to! += addresses
         }
-        return self
     }
     
-    func setTos(addresses: [String], names: [String]?) -> SmtpApi {
+    func setTos(addresses: [String], names: [String]?) {
         self.to = []
-        return self.addTos(addresses, names: names)
+        self.addTos(addresses, names: names)
     }
-    
-    // MARK: BUILDER
-    //=========================================================================
     
     
 }
