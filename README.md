@@ -155,7 +155,7 @@ header.setSendEachAt([date1, date2])
 
 #### setAsmGroup(_:)
 
-Sets an [ASM Group](https://sendgrid.com/docs/User_Guide/advanced_suppression_manager.html) for the message.
+Sets an [Advanced Suppression Management Group](https://sendgrid.com/docs/User_Guide/advanced_suppression_manager.html) for the message.
 
 ```swift
 var header = SmtpApi()

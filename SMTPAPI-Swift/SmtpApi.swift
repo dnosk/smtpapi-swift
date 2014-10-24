@@ -27,6 +27,12 @@ enum SendGridFilter: String {
 
 class SmtpApi {
     
+    // MARK: VERSION
+    //=========================================================================
+    class var version: String {
+        return "0.0.1"
+    }
+    
     // MARK: PROPERTIES
     //=========================================================================
     var to: [String]?
@@ -312,8 +318,6 @@ class SmtpApi {
             self.filters = [:]
         }
         
-        var entry = NSMutableDictionary()
-        
         if let apps = self.filters {
             var settings = [String:AnyObject]()
             if let app = apps[filter.rawValue] as? [String:AnyObject] {
@@ -414,6 +418,7 @@ class SmtpApi {
     * A boolean, indicating if the date is valid or not.
     *
     *=========================================================================*/
+    
     func verifyScheduleDate(date: NSDate) -> Bool {
         var valid = true
         var formatter = NSDateFormatter()
