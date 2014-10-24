@@ -130,6 +130,17 @@ header.addFilter(SendGridFilter.OpenTracking, setting: "enable", value: 0)
 // JSON Value: {"filters":{"opentrack":{"settings":{"enable":0}}}}
 ```
 
+#### setSendAt(_:)
+
+Sets a date (NSDate) to send the message at. Keep in mind that you can only schedule up to 24 hours in the future.
+
+```swift
+var header = SmtpApi()
+var date = NSDate(timeIntervalSinceNow: (3 * 60 * 60)) // 3 hours from now
+header.setSendAt(date)
+// Example JSON Value: {"send_at":1407974400)}
+```
+
 ## Contributing
 
 1. Fork it

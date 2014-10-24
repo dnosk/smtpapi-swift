@@ -337,4 +337,27 @@ class SmtpApi {
         
     }
     
+    /* setSendAt(_:)
+    *
+    * SUMMARY
+    * Sets the send_at property, which specifies a time to send the email at.
+    *
+    * PARAMETERS
+    * date      An NSDate object representing when to send the message.
+    *
+    * RETURNS
+    * Nothing.
+    *
+    *=========================================================================*/
+    
+    func setSendAt(date: NSDate) {
+        if date.timeIntervalSinceNow <= 0 {
+            println("[**WARNING**] SmtpApi setSendAt: Date was set to a time in the past.")
+        } else if date.timeIntervalSinceNow > (24 * 60 * 60) {
+            println("[**WARNING**] SmtpApi setSendAt: Date was set to unsupported time (further than 24 hours in the future). See https://sendgrid.com/docs/API_Reference/SMTP_API/scheduling_parameters.html for more details.")
+        }
+        
+        self.send_at = Int(date.timeIntervalSince1970)
+    }
+    
 }

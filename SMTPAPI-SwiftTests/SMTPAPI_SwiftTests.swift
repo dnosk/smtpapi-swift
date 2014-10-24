@@ -90,4 +90,11 @@ class SMTPAPI_SwiftTests: XCTestCase {
         XCTAssertEqual(header.jsonValue, "{\"filters\":{\"opentrack\":{\"settings\":{\"enable\":0}}}}", "Adds filter settings")
     }
     
+    func testSetSendAt() {
+        var header = SmtpApi()
+        var date = NSDate(timeIntervalSinceNow: (3 * 60 * 60)) // 3 hours from now
+        header.setSendAt(date)
+        XCTAssertEqual(header.jsonValue, "{\"send_at\":\(Int(date.timeIntervalSince1970))}", "Sets a scheduled time.")
+    }
+    
 }
