@@ -11,6 +11,8 @@
 		777905C119F9C32600B37463 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 777905C019F9C32600B37463 /* Images.xcassets */; };
 		777905C419F9C32600B37463 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 777905C219F9C32600B37463 /* MainMenu.xib */; };
 		777905D019F9C32600B37463 /* SMTPAPI_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777905CF19F9C32600B37463 /* SMTPAPI_SwiftTests.swift */; };
+		777905DA19F9C37600B37463 /* SmtpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777905D919F9C37600B37463 /* SmtpApi.swift */; };
+		777905DB19F9D42300B37463 /* SmtpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777905D919F9C37600B37463 /* SmtpApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +34,7 @@
 		777905C919F9C32600B37463 /* SMTPAPI-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SMTPAPI-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		777905CE19F9C32600B37463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		777905CF19F9C32600B37463 /* SMTPAPI_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMTPAPI_SwiftTests.swift; sourceTree = "<group>"; };
+		777905D919F9C37600B37463 /* SmtpApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmtpApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,7 @@
 				777905C019F9C32600B37463 /* Images.xcassets */,
 				777905C219F9C32600B37463 /* MainMenu.xib */,
 				777905BC19F9C32600B37463 /* Supporting Files */,
+				777905D919F9C37600B37463 /* SmtpApi.swift */,
 			);
 			path = "SMTPAPI-Swift";
 			sourceTree = "<group>";
@@ -205,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				777905DA19F9C37600B37463 /* SmtpApi.swift in Sources */,
 				777905BF19F9C32600B37463 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				777905D019F9C32600B37463 /* SMTPAPI_SwiftTests.swift in Sources */,
+				777905DB19F9D42300B37463 /* SmtpApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
