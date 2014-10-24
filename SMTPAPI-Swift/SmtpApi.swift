@@ -106,14 +106,11 @@ class SmtpApi {
     *=========================================================================*/
     
     func addTo(address: String, name: String?) {
-        if self.to == nil {
-            self.to = []
+        var names: [String]?
+        if let n = name {
+            names = [n]
         }
-        var entry = address
-        if let toName = name {
-            entry = "\(toName) <\(address)>"
-        }
-        self.to!.append(entry)
+        self.addTos([address], names: names)
     }
     
     /* addTos(_:names:)
@@ -238,6 +235,44 @@ class SmtpApi {
         }
         
         self.unique_args![key] = value
+    }
+    
+    /* addCategory(_:)
+    *
+    * SUMMARY
+    * Adds a category to the category array.
+    *
+    * PARAMETERS
+    * category      A string representing the category to add.
+    *
+    * RETURNS
+    * Nothing.
+    *
+    *=========================================================================*/
+    
+    func addCategory(category: String) {
+        self.addCategories([category])
+    }
+    
+    /* addCategories(_:)
+    *
+    * SUMMARY
+    * Appends an array of categories to the category property.
+    *
+    * PARAMETERS
+    * categories    An array of categories to add.
+    *
+    * RETURNS
+    * Nothing.
+    *
+    *=========================================================================*/
+    
+    func addCategories(categories: [String]) {
+        if self.category == nil {
+            self.category = []
+        }
+        
+        self.category! += categories
     }
     
 }

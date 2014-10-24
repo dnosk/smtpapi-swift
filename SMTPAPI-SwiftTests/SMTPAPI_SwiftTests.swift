@@ -69,4 +69,19 @@ class SMTPAPI_SwiftTests: XCTestCase {
         XCTAssertEqual(header.jsonValue, "{\"unique_args\":{\"foo\":\"bar\"}}", "Adds a unique argument")
     }
     
+    func testAddCategory() {
+        var header = SmtpApi()
+        header.addCategory("Transactional")
+        XCTAssertEqual(header.jsonValue, "{\"category\":[\"Transactional\"]}", "Adds one category")
+        
+        header.addCategory("Forgot Password")
+        XCTAssertEqual(header.jsonValue, "{\"category\":[\"Transactional\",\"Forgot Password\"]}", "Adds two categories")
+    }
+    
+    func testAddCategories() {
+        var header = SmtpApi()
+        header.addCategories(["Transactional", "Forgot Password"])
+        XCTAssertEqual(header.jsonValue, "{\"category\":[\"Transactional\",\"Forgot Password\"]}", "Adds multiple categories")
+    }
+    
 }

@@ -98,6 +98,28 @@ header.addUniqueArgument("foo", value: "bar")
 // JSON Value: {"unique_args":{"foo":"bar"}}
 ```
 
+####  addCategory(_:)
+
+Adds a category to the header.
+
+```swift
+var header = SmtpApi()
+header.addCategory("Transactional")
+// JSON Value: {"category":["Transactional"]}
+header.addCategory("Forgot Password")
+// JSON Value: {"category":["Transactional","Forgot Password"]}
+```
+
+#### addCategories(_:)
+
+Adds an array of categories to the header.
+
+```swift
+var header = SmtpApi()
+header.addCategories(["Transactional", "Forgot Password"])
+// JSON Value: {"category":["Transactional","Forgot Password"]}
+```
+
 ## Contributing
 
 1. Fork it
