@@ -57,5 +57,10 @@ class SMTPAPI_SwiftTests: XCTestCase {
         XCTAssertEqual(header.jsonValue, "{\"sub\":{\"%name%\":[\"Isaac\",\"Jose\",\"Tim\"]}}", "Adds substitution values.")
     }
 
+    func testAddSection() {
+        var header = SmtpApi()
+        header.addSection("-greetMale-", value: "Hello Mr. %name%")
+        XCTAssertEqual(header.jsonValue, "{\"section\":{\"-greetMale-\":\"Hello Mr. %name%\"}}", "Adds a section tag.")
+    }
     
 }

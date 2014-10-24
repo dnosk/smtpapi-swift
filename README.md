@@ -76,6 +76,18 @@ header.setSubstitutions("%email%", value: ["isaac@example.none","jose@example.no
 // JSON Value: {"sub":{"%name%":["Isaac","Jose","Tim"],"%email%":["isaac@example.none","jose@example.none","tim@example.none"]}}
 ```
 
+#### addSection(_:value:)
+
+Adds a new section tag. See the [Sections documentation](https://sendgrid.com/docs/API_Reference/SMTP_API/section_tags.html) for more info (this is generally used in conjunction with substitution tags).
+
+```swift
+var header = SmtpApi()
+header.addSection("-greetMale-", value: "Hello Mr. %name%")
+// JSON Value: {"section":{"-greetMale-":"Hello Mr. %name%"}}
+header.addSection("-greetFemale-", value: "Hello Ms. %name%")
+// JSON Value: {"section":{"-greetMale-":"Hello Mr. %name%","-greetFemale-":"Hello Ms. %name%"}}
+```
+
 ## Contributing
 
 1. Fork it

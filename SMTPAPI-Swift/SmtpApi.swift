@@ -197,6 +197,26 @@ class SmtpApi {
         self.sub![key] = values
     }
     
+    /* addSection(_:value:)
+    *
+    * SUMMARY
+    * Adds a section tag and value.
+    *
+    * PARAMETERS
+    * key       A string representing th key to be replaced.
+    * value     A string representing the value to replace the key with.
+    *
+    * RETURNS
+    * Nothing.
+    *
+    *=========================================================================*/
     
+    func addSection(key: String, value: String) {
+        if self.section == nil {
+            self.section = [:]
+        }
+        
+        self.section![key] = value
+    }
     
 }
