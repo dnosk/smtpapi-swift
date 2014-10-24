@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>SMTPAPI-Swift.xcscheme</key>
+		<key>SMTPAPI.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,12 +12,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>777905B819F9C32600B37463</key>
+		<key>77C75D5A19FADBDD00A9B1ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>777905C819F9C32600B37463</key>
+		<key>77C75D6519FADBDD00A9B1ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:SMTPAPI-Swift.xcodeproj">
+      location = "self:SMTPAPI.xcodeproj">
    </FileRef>
 </Workspace>

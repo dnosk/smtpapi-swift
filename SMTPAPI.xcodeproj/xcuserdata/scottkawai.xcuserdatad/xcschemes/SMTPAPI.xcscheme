@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "777905B819F9C32600B37463"
-               BuildableName = "SMTPAPI-Swift.app"
-               BlueprintName = "SMTPAPI-Swift"
-               ReferencedContainer = "container:SMTPAPI-Swift.xcodeproj">
+               BlueprintIdentifier = "77C75D5A19FADBDD00A9B1ED"
+               BuildableName = "SMTPAPI.framework"
+               BlueprintName = "SMTPAPI"
+               ReferencedContainer = "container:SMTPAPI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -28,10 +28,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "777905C819F9C32600B37463"
-               BuildableName = "SMTPAPI-SwiftTests.xctest"
-               BlueprintName = "SMTPAPI-SwiftTests"
-               ReferencedContainer = "container:SMTPAPI-Swift.xcodeproj">
+               BlueprintIdentifier = "77C75D6519FADBDD00A9B1ED"
+               BuildableName = "SMTPAPITests.xctest"
+               BlueprintName = "SMTPAPITests"
+               ReferencedContainer = "container:SMTPAPI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,20 +46,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "777905C819F9C32600B37463"
-               BuildableName = "SMTPAPI-SwiftTests.xctest"
-               BlueprintName = "SMTPAPI-SwiftTests"
-               ReferencedContainer = "container:SMTPAPI-Swift.xcodeproj">
+               BlueprintIdentifier = "77C75D6519FADBDD00A9B1ED"
+               BuildableName = "SMTPAPITests.xctest"
+               BlueprintName = "SMTPAPITests"
+               ReferencedContainer = "container:SMTPAPI.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "777905B819F9C32600B37463"
-            BuildableName = "SMTPAPI-Swift.app"
-            BlueprintName = "SMTPAPI-Swift"
-            ReferencedContainer = "container:SMTPAPI-Swift.xcodeproj">
+            BlueprintIdentifier = "77C75D5A19FADBDD00A9B1ED"
+            BuildableName = "SMTPAPI.framework"
+            BlueprintName = "SMTPAPI"
+            ReferencedContainer = "container:SMTPAPI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -72,15 +72,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "777905B819F9C32600B37463"
-            BuildableName = "SMTPAPI-Swift.app"
-            BlueprintName = "SMTPAPI-Swift"
-            ReferencedContainer = "container:SMTPAPI-Swift.xcodeproj">
+            BlueprintIdentifier = "77C75D5A19FADBDD00A9B1ED"
+            BuildableName = "SMTPAPI.framework"
+            BlueprintName = "SMTPAPI"
+            ReferencedContainer = "container:SMTPAPI.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -90,15 +90,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "777905B819F9C32600B37463"
-            BuildableName = "SMTPAPI-Swift.app"
-            BlueprintName = "SMTPAPI-Swift"
-            ReferencedContainer = "container:SMTPAPI-Swift.xcodeproj">
+            BlueprintIdentifier = "77C75D5A19FADBDD00A9B1ED"
+            BuildableName = "SMTPAPI.framework"
+            BlueprintName = "SMTPAPI"
+            ReferencedContainer = "container:SMTPAPI.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

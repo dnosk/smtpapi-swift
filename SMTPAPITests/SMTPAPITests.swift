@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 SendGrid. All rights reserved.
 //
 
-import Cocoa
 import XCTest
 
 class SMTPAPI_SwiftTests: XCTestCase {
