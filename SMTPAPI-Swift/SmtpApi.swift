@@ -117,7 +117,7 @@ class SmtpApi {
         self.to!.append(entry)
     }
     
-    /* addTos(_:names)
+    /* addTos(_:names:)
     *
     * SUMMARY
     * Appends an array of email addresses to the `to` property. Allows an
@@ -153,7 +153,7 @@ class SmtpApi {
         }
     }
     
-    /* setTos(_:names)
+    /* setTos(_:names:)
     *
     * SUMMARY
     * Resets the `to` property to the passed array of email addresses. Allows
@@ -175,5 +175,43 @@ class SmtpApi {
         self.addTos(addresses, names: names)
     }
     
+    /* addSubstitution(_:values:)
+    *
+    * SUMMARY
+    * Adds the array of values for the given key to the `sub` property.
+    *
+    * PARAMETERS
+    * key       A string of the substitution tag.
+    * values    An array of strings representing the substitution values.
+    *
+    * RETURNS
+    * Nothing.
+    *
+    *=========================================================================*/
+    
+    func addSubstitution(key: String, values: [String]) {
+        if self.sub == nil {
+            self.sub = [:]
+        }
+        
+        self.sub![key] = values
+    }
+    
+    /* setSubstitutions(_:)
+    *
+    * SUMMARY
+    * Sets the property `sub` to the given dictionary
+    *
+    * PARAMETERS
+    * values    A dictionary of keys and values used for the `sub` property.
+    *
+    * RETURNS
+    * Nothing.
+    *
+    *=========================================================================*/
+    
+    func setSubstitutions(values: [String:[String]]) {
+        self.sub = values
+    }
     
 }

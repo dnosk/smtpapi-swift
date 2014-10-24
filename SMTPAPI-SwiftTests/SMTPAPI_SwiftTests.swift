@@ -51,4 +51,17 @@ class SMTPAPI_SwiftTests: XCTestCase {
         XCTAssertEqual(header.jsonValue, "{\"to\":[\"Foo <foo@bar.com>\",\"Bar <bar@foo.com>\"]}", "Sets multiple addresses with pre-existing addresses and to names.")
     }
     
+    func testAddSubstitution() {
+        var header = SmtpApi()
+        header.addSubstitution("%name%", values: ["Isaac","Jose","Tim"])
+        XCTAssertEqual(header.jsonValue, "{\"sub\":{\"%name%\":[\"Isaac\",\"Jose\",\"Tim\"]}}", "Adds substitution values.")
+    }
+    
+    func testSetSubstitution() {
+        var header = SmtpApi()
+        header.setSubstitutions(["%name%": ["Isaac","Jose","Tim"]])
+        header.setSubstitutions(["%email%": ["isaac@example.none","jose@example.none","tim@example.none"]])
+        XCTAssertEqual(header.jsonValue, "{\"sub\":{\"%email%\":[\"isaac@example.none\",\"jose@example.none\",\"tim@example.none\"]}}", "Resets substitution values.")
+    }
+    
 }

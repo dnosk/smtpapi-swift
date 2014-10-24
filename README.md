@@ -64,6 +64,30 @@ header.setTos(["tim@example.none","joe@example.none"], names: ["Tim","Joe"])
 // JSON Value: {"to":["Tim <tim@example.none>","Joe <joe@example.none>"]}
 ```
 
+#### addSubstitution(_:values:)
+
+Adds an array of substitution `values` for a given `key`.
+
+```swift
+var header = SmtpApi()
+header.addSubstitution("%name%", values: ["Isaac","Jose","Tim"])
+// JSON Value: {"sub":{"%name%":["Isaac","Jose","Tim"]}}
+header.setSubstitutions("%email%", value: ["isaac@example.none","jose@example.none","tim@example.none"])
+// JSON Value: {"sub":{"%name%":["Isaac","Jose","Tim"],"%email%":["isaac@example.none","jose@example.none","tim@example.none"]}}
+```
+
+#### setSubstitutions(_:)
+
+Resets the substitution values to the given dictionary.
+```swift
+var header = SmtpApi()
+header.setSubstitutions(["%name%": ["Isaac","Jose","Tim"]])
+// JSON Value: {"sub":{"%name%":["Isaac","Jose","Tim"]}}
+header.setSubstitutions(["%email%": ["isaac@example.none","jose@example.none","tim@example.none"]])
+// JSON Value: {"sub":{"%email%":["isaac@example.none","jose@example.none","tim@example.none"]}}
+```
+
+
 ## Contributing
 
 1. Fork it
