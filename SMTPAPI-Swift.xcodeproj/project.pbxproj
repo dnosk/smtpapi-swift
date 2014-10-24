@@ -13,7 +13,6 @@
 		777905D019F9C32600B37463 /* SMTPAPI_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777905CF19F9C32600B37463 /* SMTPAPI_SwiftTests.swift */; };
 		777905DA19F9C37600B37463 /* SmtpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777905D919F9C37600B37463 /* SmtpApi.swift */; };
 		777905DB19F9D42300B37463 /* SmtpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777905D919F9C37600B37463 /* SmtpApi.swift */; };
-		777905DD19F9D7D900B37463 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 777905DC19F9D7D900B37463 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,7 +211,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				777905DD19F9D7D900B37463 /* README.md in Sources */,
 				777905DA19F9C37600B37463 /* SmtpApi.swift in Sources */,
 				777905BF19F9C32600B37463 /* AppDelegate.swift in Sources */,
 			);

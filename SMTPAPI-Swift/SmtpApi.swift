@@ -82,12 +82,30 @@ class SmtpApi {
         return "{}"
     }
     
+    
     // MARK: INITIALIZATION
     //=========================================================================
     init() {}
     
+    
     // MARK: FUNCTIONS
     //=========================================================================
+    
+    /* addTo(_:name:)
+    *
+    * SUMMARY
+    * Appends an email address to the `to` property. Allows an optional to name
+    * to be specified.
+    *
+    * PARAMETERS
+    * address       A string of the email address to add.
+    * name          An optional string of the recipient's name.
+    *
+    * RETURNS
+    * Nothing.
+    *
+    *=========================================================================*/
+    
     func addTo(address: String, name: String?) {
         if self.to == nil {
             self.to = []
@@ -98,6 +116,22 @@ class SmtpApi {
         }
         self.to!.append(entry)
     }
+    
+    /* addTos(_:names)
+    *
+    * SUMMARY
+    * Appends an array of email addresses to the `to` property. Allows an
+    * optional array of to names to be specified.
+    *
+    * PARAMETERS
+    * addresses     An array of strings representing the email addresses to add.
+    * names         An optional array of strings representing the names of the
+    *               recipients.
+    *
+    * RETURNS
+    * Nothing.
+    *
+    *=========================================================================*/
     
     func addTos(addresses: [String], names: [String]?) {
         if self.to == nil {
@@ -118,6 +152,23 @@ class SmtpApi {
             self.to! += addresses
         }
     }
+    
+    /* setTos(_:names)
+    *
+    * SUMMARY
+    * Resets the `to` property to the passed array of email addresses. Allows
+    * an optional array of to names to be specified.
+    *
+    * PARAMETERS
+    * addresses     An array of strings representing the email addresses to 
+    *               reset the `to` property to.
+    * names         An optional array of strings representing the names of the
+    *               recipients.
+    *
+    * RETURNS
+    * Nothing.
+    *
+    *=========================================================================*/
     
     func setTos(addresses: [String], names: [String]?) {
         self.to = []
