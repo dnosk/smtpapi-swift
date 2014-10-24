@@ -16,8 +16,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
-        var header = SmtpApi()
-        header.setTos(["scott@sendgrid.com","ron@sendgrid.com"], names: nil)
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {

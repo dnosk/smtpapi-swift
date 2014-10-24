@@ -120,6 +120,16 @@ header.addCategories(["Transactional", "Forgot Password"])
 // JSON Value: {"category":["Transactional","Forgot Password"]}
 ```
 
+#### addFilter(_:setting:value:)
+
+Adds settings for a specified [App](https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html). The first parameter is the name of the app to edit, and uses the SendGridFilter enum defined at the top of SmtpApi.swift to avoid common mistakes.
+
+```swift
+var header = SmtpApi()
+header.addFilter(SendGridFilter.OpenTracking, setting: "enable", value: 0)
+// JSON Value: {"filters":{"opentrack":{"settings":{"enable":0}}}}
+```
+
 ## Contributing
 
 1. Fork it

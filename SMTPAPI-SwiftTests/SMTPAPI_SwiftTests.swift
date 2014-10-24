@@ -56,7 +56,7 @@ class SMTPAPI_SwiftTests: XCTestCase {
         header.addSubstitution("%name%", values: ["Isaac","Jose","Tim"])
         XCTAssertEqual(header.jsonValue, "{\"sub\":{\"%name%\":[\"Isaac\",\"Jose\",\"Tim\"]}}", "Adds substitution values.")
     }
-
+    
     func testAddSection() {
         var header = SmtpApi()
         header.addSection("-greetMale-", value: "Hello Mr. %name%")
@@ -82,6 +82,12 @@ class SMTPAPI_SwiftTests: XCTestCase {
         var header = SmtpApi()
         header.addCategories(["Transactional", "Forgot Password"])
         XCTAssertEqual(header.jsonValue, "{\"category\":[\"Transactional\",\"Forgot Password\"]}", "Adds multiple categories")
+    }
+    
+    func testAddFilter() {
+        var header = SmtpApi()
+        header.addFilter(SendGridFilter.OpenTracking, setting: "enable", value: 0)
+        XCTAssertEqual(header.jsonValue, "{\"filters\":{\"opentrack\":{\"settings\":{\"enable\":0}}}}", "Adds filter settings")
     }
     
 }

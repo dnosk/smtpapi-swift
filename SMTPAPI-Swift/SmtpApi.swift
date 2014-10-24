@@ -8,6 +8,23 @@
 
 import Foundation
 
+enum SendGridFilter: String {
+    case BCC = "bcc"
+    case BypassListManagement = "bypass_list_management"
+    case ClickTracking = "clicktrack"
+    case DKIM = "dkim"
+    case DomainKeys = "domainkeys"
+    case Footer = "footer"
+    case ForwardSpam = "forwardspam"
+    case GoogleAnalytics = "ganalytics"
+    case Gravatar = "gravatar"
+    case OpenTracking = "opentrack"
+    case SpamCheck = "spamcheck"
+    case SubscriptionTracking = "subscriptiontrack"
+    case LegacyTemplates = "template"
+    case TemplateEngine = "templates"
+}
+
 class SmtpApi {
     
     // MARK: PROPERTIES
@@ -273,6 +290,51 @@ class SmtpApi {
         }
         
         self.category! += categories
+    }
+    
+    /* addFilter(_:setting:value:)
+    *
+    * SUMMARY
+    * Adds a value for a given setting for a given filter (app).
+    *
+    * PARAMETERS
+    * filter    The filter to modify. Uses the SendGridFilter enum.
+    * setting   The name of the setting
+    * value     The value to set for the given setting.
+    *
+    * RETURNS
+    * Nothing.
+    *
+    *=========================================================================*/
+    
+    func addFilter(filter: SendGridFilter, setting: String, value: Any) {
+        if self.filters == nil {
+            self.filters = [:]
+        }
+        
+        var entry = NSMutableDictionary()
+        
+        if let apps = self.filters {
+            var settings = [String:AnyObject]()
+            if let app = apps[filter.rawValue] as? [String:AnyObject] {
+                if let s = app["settings"] as? [String:AnyObject] {
+                    settings = s
+                }
+            }
+            
+            if let val = value as? Int {
+                settings[setting] = NSNumber(integer: val)
+            } else if let val = value as? String {
+                settings[setting] = val
+            } else {
+                println("[**ERROR**] SmtpApi addFilter: Only Strings and Integers are allowed as values.")
+                return
+            }
+            
+            var app: [String:AnyObject] = ["settings":settings]
+            self.filters?[filter.rawValue] = app
+        }
+        
     }
     
 }
