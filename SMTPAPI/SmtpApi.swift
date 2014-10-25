@@ -93,13 +93,13 @@ class SmtpApi {
         var error: NSError?
         var data = NSJSONSerialization.dataWithJSONObject(self.dictionaryValue, options: nil, error: &error)
         if let err = error {
-            println("[**ERROR**] SmtpApi jsonValue: Error converting to JSON string. \(err.localizedDescription)")
+            Logger.error("SmtpApi jsonValue: Error converting to JSON string. \(err.localizedDescription)")
         } else if let json = data {
             if let str = NSString(data: json, encoding: NSUTF8StringEncoding) {
                 return str
             }
         } else {
-            println("[**ERROR**] SmtpApi jsonValue: NSJSONSerialization returned nil from SmtpApi value.")
+            Logger.error("SmtpApi jsonValue: NSJSONSerialization returned nil from SmtpApi value.")
         }
         return "{}"
     }
@@ -168,7 +168,7 @@ class SmtpApi {
                     self.to!.append("\(name) <\(email)>")
                 }
             } else {
-                println("[**ERROR**] SmtpApi addTos: The number of email addresses provided didn't match the number of names provided.")
+                Logger.error("SmtpApi addTos: The number of email addresses provided didn't match the number of names provided.")
                 return
             }
         } else {
@@ -183,7 +183,7 @@ class SmtpApi {
     * an optional array of to names to be specified.
     *
     * PARAMETERS
-    * addresses     An array of strings representing the email addresses to 
+    * addresses     An array of strings representing the email addresses to
     *               reset the `to` property to.
     * names         An optional array of strings representing the names of the
     *               recipients.
@@ -335,7 +335,7 @@ class SmtpApi {
             } else if let val = value as? String {
                 settings[setting] = val
             } else {
-                println("[**ERROR**] SmtpApi addFilter: Only Strings and Integers are allowed as values.")
+                Logger.error("SmtpApi addFilter: Only Strings and Integers are allowed as values.")
                 return
             }
             
@@ -436,13 +436,31 @@ class SmtpApi {
         var current = "\(formatter.stringFromDate(now)) at \(time.stringFromDate(now))"
         
         if date.timeIntervalSinceNow <= 0 {
-            println("[**WARNING**] SmtpApi setSendAt: Date \"\(scheduled)\" was set to a time in the past (currently it is \(current))")
+            Logger.warn("SmtpApi setSendAt: Date \"\(scheduled)\" was set to a time in the past (currently it is \(current))")
             valid = false
         } else if date.timeIntervalSinceNow > (24 * 60 * 60) {
-            println("[**WARNING**] SmtpApi setSendAt: Date \"\(scheduled)\" was set to unsupported time (further than 24 hours in the future - currently it is \(current)). See https://sendgrid.com/docs/API_Reference/SMTP_API/scheduling_parameters.html for more details.")
+            Logger.warn("SmtpApi setSendAt: Date \"\(scheduled)\" was set to unsupported time (further than 24 hours in the future - currently it is \(current)). See https://sendgrid.com/docs/API_Reference/SMTP_API/scheduling_parameters.html for more details.")
             valid = false
         }
         return valid
     }
     
+}
+
+struct Logger {
+    static func log(type: String, message: String) {
+        println("[\(type)] \(message)")
+    }
+    
+    static func warn(message: String) {
+        Logger.log("**WARNING**", message: message)
+    }
+    
+    static func error(message: String) {
+        Logger.log("**ERROR**", message: message)
+    }
+    
+    static func info(message: String) {
+        Logger.log("INFO", message: message)
+    }
 }
