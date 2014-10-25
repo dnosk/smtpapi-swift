@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Cocoa
 
 class SMTPAPI_SwiftTests: XCTestCase {
     
@@ -108,6 +109,13 @@ class SMTPAPI_SwiftTests: XCTestCase {
         var header = SmtpApi()
         header.setAsmGroup(2)
         XCTAssertEqual(header.jsonValue, "{\"asm_group_id\":2}", "Sets an ASM group.")
+    }
+    
+    func testHasSmtpApiProperty() {
+        var header = SmtpApi()
+        XCTAssertFalse(header.hasSmtpApi, "Initiating a new instance has `hasSmtpApi` equaling false.")
+        header.setAsmGroup(2)
+        XCTAssertTrue(header.hasSmtpApi, "Adding to the header makes `hasSmtpApi` equal true.")
     }
     
 }

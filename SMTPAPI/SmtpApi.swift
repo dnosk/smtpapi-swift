@@ -104,6 +104,10 @@ class SmtpApi {
         return "{}"
     }
     
+    var hasSmtpApi: Bool {
+        return countElements(self.dictionaryValue) > 0
+    }
+    
     
     // MARK: INITIALIZATION
     //=========================================================================
