@@ -98,7 +98,7 @@ header.addUniqueArgument("foo", value: "bar")
 // JSON Value: {"unique_args":{"foo":"bar"}}
 ```
 
-####  addCategory(_:)
+#### addCategory(_:)
 
 Adds a category to the header.
 

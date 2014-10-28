@@ -25,6 +25,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		770AE3BF19FF457C00E59D8D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		77C75D5B19FADBDD00A9B1ED /* SMTPAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SMTPAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77C75D5F19FADBDD00A9B1ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77C75D6019FADBDD00A9B1ED /* SMTPAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMTPAPI.h; sourceTree = "<group>"; };
@@ -56,6 +57,7 @@
 		77C75D5119FADBDC00A9B1ED = {
 			isa = PBXGroup;
 			children = (
+				770AE3BF19FF457C00E59D8D /* README.md */,
 				77C75D5D19FADBDD00A9B1ED /* SMTPAPI */,
 				77C75D6A19FADBDD00A9B1ED /* SMTPAPITests */,
 				77C75D5C19FADBDD00A9B1ED /* Products */,
@@ -406,6 +408,7 @@
 				77C75D7319FADBDD00A9B1ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		77C75D7419FADBDD00A9B1ED /* Build configuration list for PBXNativeTarget "SMTPAPITests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +417,7 @@
 				77C75D7619FADBDD00A9B1ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
