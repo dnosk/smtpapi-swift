@@ -174,6 +174,10 @@ class SmtpApi {
         } else {
             self.to! += addresses
         }
+        
+        if countElements(self.to!) > 10000 {
+            Logger.error("You've exceeded the maximum number of addresses allowed in the X-SMTPAPI header (10,000).  If you continue to send this message, SendGrid's system will automatically drop the message and won't deliver it.")
+        }
     }
     
     /* setTos(_:names:)
