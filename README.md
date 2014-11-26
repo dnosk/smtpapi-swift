@@ -165,6 +165,8 @@ header.setAsmGroup(2)
 
 #### setIpPool(_:)
 
+Specifies an IP Pool to send the message over. For information on setting up an IP Pool, view the [Documentation page](https://sendgrid.com/docs/API_Reference/Web_API_v3/IP_Management/ip_pools.html).
+
 ```swift
 var header = SmtpApi()
 header.setIpPool("pool_party")
