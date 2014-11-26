@@ -44,6 +44,7 @@ class SmtpApi {
     var send_at: Int?
     var send_each_at: [Int]?
     var asm_group_id: Int?
+    var ip_pool: String?
     
     // MARK: COMPUTED PROPERTIES
     //=========================================================================
@@ -84,6 +85,10 @@ class SmtpApi {
         
         if let asm = self.asm_group_id {
             dictionary["asm_group_id"] = asm
+        }
+        
+        if let ip_pool = self.ip_pool {
+            dictionary["ip_pool"] = ip_pool
         }
         
         return dictionary
@@ -407,6 +412,23 @@ class SmtpApi {
     
     func setAsmGroup(id: Int) {
         self.asm_group_id = id
+    }
+    
+    /* setIpPool(_:)
+    *
+    * SUMMARY
+    * Specifies the IP Pool to send a message over.
+    *
+    * PARAMETERS
+    * pool      A string indicating the name of the pool to send over.
+    *
+    * RETURNS
+    * Nothing.
+    *
+    *=========================================================================*/
+    
+    func setIpPool(pool: String) {
+        self.ip_pool = pool
     }
     
     

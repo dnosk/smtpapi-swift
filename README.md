@@ -163,6 +163,14 @@ header.setAsmGroup(2)
 // JSON Value: {"asm_group_id":2}
 ```
 
+#### setIpPool(_:)
+
+```swift
+var header = SmtpApi()
+header.setIpPool("pool_party")
+// JSON Value: {"ip_pool":"pool_party"}
+```
+
 ## Contributing
 
 1. Fork it

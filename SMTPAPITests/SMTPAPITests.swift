@@ -118,4 +118,10 @@ class SMTPAPI_SwiftTests: XCTestCase {
         XCTAssertTrue(header.hasSmtpApi, "Adding to the header makes `hasSmtpApi` equal true.")
     }
     
+    func testIpPool() {
+        var header = SmtpApi()
+        header.setIpPool("pool_party")
+        XCTAssertEqual(header.jsonValue, "{\"ip_pool\":\"pool_party\"}", "Sets an IP Pool.")
+    }
+    
 }
