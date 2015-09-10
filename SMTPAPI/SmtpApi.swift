@@ -95,22 +95,19 @@ class SmtpApi {
     }
     
     var jsonValue: String {
-        var error: NSError?
-        var data = NSJSONSerialization.dataWithJSONObject(self.dictionaryValue, options: nil, error: &error)
-        if let err = error {
-            Logger.error("SmtpApi jsonValue: Error converting to JSON string. \(err.localizedDescription)")
-        } else if let json = data {
-            if let str = NSString(data: json, encoding: NSUTF8StringEncoding) {
-                return str
+        do {
+            let data = try NSJSONSerialization.dataWithJSONObject(self.dictionaryValue, options: [])
+            if let str = NSString(data: data, encoding: NSUTF8StringEncoding) {
+                return str as String
             }
-        } else {
-            Logger.error("SmtpApi jsonValue: NSJSONSerialization returned nil from SmtpApi value.")
+        } catch let error as NSError {
+            Logger.error("SmtpApi jsonValue: Error converting to JSON string. \(error.localizedDescription)")
         }
         return "{}"
     }
     
     var hasSmtpApi: Bool {
-        return countElements(self.dictionaryValue) > 0
+        return (self.dictionaryValue).count > 0
     }
     
     
@@ -167,9 +164,9 @@ class SmtpApi {
         }
         
         if let toNames = names {
-            if countElements(addresses) == countElements(toNames) {
-                for (index, name) in enumerate(toNames) {
-                    var email = addresses[index]
+            if (addresses).count == (toNames).count {
+                for (index, name) in toNames.enumerate() {
+                    let email = addresses[index]
                     self.to!.append("\(name) <\(email)>")
                 }
             } else {
@@ -348,7 +345,7 @@ class SmtpApi {
                 return
             }
             
-            var app: [String:AnyObject] = ["settings":settings]
+            let app: [String:AnyObject] = ["settings":settings]
             self.filters?[filter.rawValue] = app
         }
         
@@ -451,15 +448,15 @@ class SmtpApi {
     
     func verifyScheduleDate(date: NSDate) -> Bool {
         var valid = true
-        var formatter = NSDateFormatter()
+        let formatter = NSDateFormatter()
         formatter.dateStyle = NSDateFormatterStyle.LongStyle
-        var time = NSDateFormatter()
+        let time = NSDateFormatter()
         time.timeStyle = NSDateFormatterStyle.LongStyle
         
-        var now = NSDate()
+        let now = NSDate()
         
-        var scheduled = "\(formatter.stringFromDate(date)) at \(time.stringFromDate(date))"
-        var current = "\(formatter.stringFromDate(now)) at \(time.stringFromDate(now))"
+        let scheduled = "\(formatter.stringFromDate(date)) at \(time.stringFromDate(date))"
+        let current = "\(formatter.stringFromDate(now)) at \(time.stringFromDate(now))"
         
         if date.timeIntervalSinceNow <= 0 {
             Logger.warn("SmtpApi setSendAt: Date \"\(scheduled)\" was set to a time in the past (currently it is \(current))")
@@ -475,7 +472,7 @@ class SmtpApi {
 
 struct Logger {
     static func log(type: String, message: String) {
-        println("[\(type)] \(message)")
+        print("[\(type)] \(message)")
     }
     
     static func warn(message: String) {
